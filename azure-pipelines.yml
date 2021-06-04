@@ -6,24 +6,9 @@
 pool:
   vmImage: 'Ubuntu 16.04'
 
-variables:
-  phpVersion: 7.2
-
-steps:
-- script: |
-    sudo update-alternatives --set php /usr/bin/php$(phpVersion)
-    sudo update-alternatives --set phar /usr/bin/phar$(phpVersion)
-    sudo update-alternatives --set phpdbg /usr/bin/phpdbg$(phpVersion)
-    sudo update-alternatives --set php-cgi /usr/bin/php-cgi$(phpVersion)
-    sudo update-alternatives --set phar.phar /usr/bin/phar.phar$(phpVersion)
-    php -version
-  displayName: 'Use PHP version $(phpVersion)'
-
-- script: composer install
-  displayName: 'composer install'
 
 - script: 'curl -LJO https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar'
   displayName: 'Download the latest Unified Agent'
 
-- script: 'java -jar wss-unified-agent.jar -c wss-unified-agent.config -apiKey cec9e87439cc4a408732aef6990390dfcc7c4da41c6c43cb929ce1bfd0da6186 -project 69863'
+- script: 'java -jar wss-unified-agent.jar -c wss-unified-agent.config -apiKey cec9e87439cc4a408732aef6990390dfcc7c4da41c6c43cb929ce1bfd0da6186 -project 69863 -loglevel debug'
   displayName: 'Run Unified Agent Scan'
