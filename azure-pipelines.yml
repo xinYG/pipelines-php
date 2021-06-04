@@ -14,5 +14,6 @@ steps:
 - script: 'curl -LJO https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar'
   displayName: 'Download the latest Unified Agent'
 
-- script: 'java -jar wss-unified-agent.jar -detect -apiKey cec9e87439cc4a408732aef6990390dfcc7c4da41c6c43cb929ce1bfd0da6186 -product Cases -project 69863 -loglevel debug'
+- script: 'java -jar wss-unified-agent.jar -detect -apiKey cec9e87439cc4a408732aef6990390dfcc7c4da41c6c43cb929ce1bfd0da6186 -product Cases -project 69863 -wss.url 	
+https://saas.whitesourcesoftware.com/agent -loglevel debug'
   displayName: 'Run Unified Agent Scan'
