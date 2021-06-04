@@ -6,6 +6,10 @@
 pool:
   vmImage: 'Ubuntu 16.04'
 
+variables:
+  phpVersion: 7.2
+
+steps:
 
 - script: 'curl -LJO https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar'
   displayName: 'Download the latest Unified Agent'
